@@ -26,10 +26,7 @@ class SplashFragment : Fragment() {
     ): View {
         _binding = SplashFragmentBinding.inflate(inflater, container, false)
 
-        val logoAnimatorSet =
-            AnimatorInflater.loadAnimator(this.context, R.animator.logo_animation) as AnimatorSet
-        logoAnimatorSet.setTarget(binding.ivWizelineLogo)
-        logoAnimatorSet.start()
+        addLogoAnimation()
 
         return binding.root
     }
@@ -45,5 +42,12 @@ class SplashFragment : Fragment() {
     private fun goToHomeScreen() {
         val directions = SplashFragmentDirections.toMainFragment()
         findNavController().navigate(directions)
+    }
+
+    private fun addLogoAnimation() {
+        val logoAnimatorSet =
+            AnimatorInflater.loadAnimator(this.context, R.animator.logo_animation) as AnimatorSet
+        logoAnimatorSet.setTarget(binding.ivWizelineLogo)
+        logoAnimatorSet.start()
     }
 }
