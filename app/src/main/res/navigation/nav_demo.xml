@@ -12,7 +12,11 @@
         tools:layout="@layout/splash_fragment">
         <action
             android:id="@+id/toMainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_in_left" />
     </fragment>
 
     <fragment
