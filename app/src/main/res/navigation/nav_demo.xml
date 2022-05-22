@@ -26,7 +26,11 @@
         tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/toDetailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_in_right" />
     </fragment>
 
     <fragment
