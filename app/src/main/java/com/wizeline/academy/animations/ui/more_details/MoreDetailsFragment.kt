@@ -8,6 +8,7 @@ import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.transition.ChangeBounds
 import androidx.transition.TransitionInflater
 import com.wizeline.academy.animations.databinding.MoreDetailsFragmentBinding
 import com.wizeline.academy.animations.utils.loadImage
@@ -33,6 +34,8 @@ class MoreDetailsFragment : Fragment() {
 
         sharedElementEnterTransition = TransitionInflater.from(requireContext())
             .inflateTransition(android.R.transition.move)
+
+        sharedElementReturnTransition = ChangeBounds()
     }
 
     override fun onCreateView(
