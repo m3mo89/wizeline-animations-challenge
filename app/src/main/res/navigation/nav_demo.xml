@@ -42,9 +42,9 @@
             android:name="imageId"
             android:defaultValue="0"
             app:argType="integer" />
-        <action
+        <!--<action
             android:id="@+id/toMoreDetailsFragment"
-            app:destination="@id/moreDetailsFragment" />
+            app:destination="@id/moreDetailsFragment" />-->
     </fragment>
 
     <fragment
