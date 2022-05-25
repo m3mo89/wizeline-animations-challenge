@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.wizeline.academy.animations.databinding.DetailFragmentBinding
@@ -29,7 +30,7 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = DetailFragmentBinding.inflate(layoutInflater, container, false)
-        binding.btnMoreDetails.setOnClickListener { goToMoreDetails() }
+        initListeners()
         binding.ivImageDetail.loadImage(args.imageId)
         return binding.root
     }
@@ -37,7 +38,23 @@ class DetailFragment : Fragment() {
     private fun goToMoreDetails() {
         val directions =
             DetailFragmentDirections.toMoreDetailsFragment(args.imageId, viewModel.contentIndex)
-        findNavController().navigate(directions)
+
+        val extras = FragmentNavigatorExtras(
+            binding.ivImageDetail to "image_detail",
+            binding.tvTitle to "title",
+            binding.tvSubtitle to "subtitle"
+        )
+
+        findNavController().navigate(
+            directions = directions,
+            navigatorExtras = extras
+        )
+    }
+
+    private fun initListeners() {
+        binding.btnMoreDetails.setOnClickListener {
+            goToMoreDetails()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
